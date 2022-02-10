@@ -1,0 +1,69 @@
+﻿<Window x:Class="piza.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:piza"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <Button x:Name="AddData" Click="AddData_Click">Добавить клиента</Button>
+            <Button x:Name="DeleteData" Click="DeleteData_Click">Удалить клиента</Button>
+
+            <ComboBox Name="CmbFilter" SelectionChanged="CmbFilter_SelectionChanged"  SelectedIndex="0" ItemsSource="{Binding Gender}" DisplayMemberPath="Name"></ComboBox>
+            <TextBox Width="100" Text="{Binding FullName}" TextChanged="txtName_TextChanged"  Name="txtName"/>
+            <TextBox Width="100" Text="{Binding Email}" TextChanged="txtEmail_TextChanged"  Name="txtEmail"/>
+            <TextBox Width="100" Text="{Binding Phone}" TextChanged="txtPhone_TextChanged"  Name="txtPhone"/>
+            <Button x:Name="BtnSortFirstName" Click="BtnSortFirstName_Click"  Content="firstName a-z"/>
+            <Button x:Name="BtnSortLastDate" Click="BtnSortLastDate_Click"  Content="last date a-z"/>
+            <Button x:Name="BtnSortCount" Click="BtnSortCount_Click"  Content="count a-z"/>
+        </StackPanel>
+        <DataGrid x:Name="dgMain" AutoGenerateColumns="False" ColumnWidth="*" IsReadOnly="True" Grid.Row="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Товар" Binding="{Binding Product1.pizza}"/>
+                <DataGridTextColumn Header="Имя клиента" Binding="{Binding Client1.name}"/>
+                <DataGridTextColumn Header="Способ доставки" Binding="{Binding MetodDost1.metodDost1}"/>
+                <DataGridTextColumn Header="Адрес доставки" Binding="{Binding adres}"/>
+                <DataGridTextColumn Header="Оформление" Binding="{Binding MetOforml.metodOforml}"/>
+                <DataGridTemplateColumn Header="Tags">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ListView x:Name="lvTags" ItemsSource="{Binding Tags}">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Background="{Binding colorTag}" Text="{Binding Title}" Foreground="White"/>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Orientation="Horizontal" Grid.Row="2">
+            <ComboBox x:Name="cmbSelectCount" SelectionChanged="cmbSelectCount_SelectionChanged"  Margin="5" Width="100">
+                <ComboBoxItem IsSelected="True">
+                    <TextBlock>10</TextBlock>
+                </ComboBoxItem>
+                <TextBlock>50</TextBlock>
+                <TextBlock>200</TextBlock>
+                <TextBlock>Все</TextBlock>
+            </ComboBox>
+            <Button x:Name="showRecord" Click="showRecord_Click"  Content="Показать"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button x:Name="PrevPage" Click="PrevPage_Click"  Content="Предыдущая страница"></Button>
+                <TextBlock x:Name="CurrentPage"></TextBlock>
+                <Button x:Name="NextPage" Click="NextPage_Click"  Content="Следующая страница"></Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock x:Name="Records"></TextBlock>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

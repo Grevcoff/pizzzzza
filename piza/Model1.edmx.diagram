@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d0383f61cc4b408389f127dee8e36103" Name="Diagram1">
+        <EntityTypeShape EntityType="pizzaModel.Client" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="pizzaModel.Employee" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="pizzaModel.Gender" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="pizzaModel.main" Width="1.5" PointX="5.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="pizzaModel.MetodDost" Width="1.5" PointX="7.125" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="pizzaModel.MetOforml" Width="1.5" PointX="3" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="pizzaModel.Post" Width="1.5" PointX="0.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="pizzaModel.Product" Width="1.5" PointX="3" PointY="13.625" IsExpanded="true" />
+        <AssociationConnector Association="pizzaModel.FK_Client_Gender" ManuallyRouted="false" />
+        <AssociationConnector Association="pizzaModel.FK_main_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="pizzaModel.FK_Employee_Gender" ManuallyRouted="false" />
+        <AssociationConnector Association="pizzaModel.FK_Employee_Post" ManuallyRouted="false" />
+        <AssociationConnector Association="pizzaModel.FK_main_MetodDost" ManuallyRouted="false" />
+        <AssociationConnector Association="pizzaModel.FK_main_MetOforml" ManuallyRouted="false" />
+        <AssociationConnector Association="pizzaModel.FK_main_Product" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
